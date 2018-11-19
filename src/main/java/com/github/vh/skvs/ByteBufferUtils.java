@@ -62,7 +62,9 @@ public class ByteBufferUtils {
     }
 
     public static byte[] toBytes(ByteBuffer buf) {
-        return buf.array();
+        byte[] bytes = new byte[buf.capacity()];
+        buf.get(bytes);
+        return bytes;
     }
 
     public static String toString(ByteBuffer buf) {
