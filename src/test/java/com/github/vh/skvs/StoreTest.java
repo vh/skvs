@@ -10,6 +10,7 @@ import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @ExtendWith(TempDirectory.class)
@@ -94,8 +95,27 @@ public class StoreTest {
         Assertions.assertFalse(store.contains("key"));
     }
 
-    // TODO: @Test
+    @Test
     void enumerate() {
+        List<Map.Entry<String, String>> a0 = Arrays.asList(
+                new AbstractMap.SimpleImmutableEntry<>("k1", "v1"),
+                new AbstractMap.SimpleImmutableEntry<>("k2", "v2"),
+                new AbstractMap.SimpleImmutableEntry<>("k3", "v3")
+        );
 
+        List<Map.Entry<String, String>> a1 = a0.stream().map(kv ->
+                new AbstractMap.SimpleImmutableEntry<>("prefix1:" + kv.getKey(), kv.getValue())).collect(Collectors.toList());
+
+        List<Map.Entry<String, String>> a2 = a0.stream().map(kv ->
+                new AbstractMap.SimpleImmutableEntry<>("prefix2:" + kv.getKey(), kv.getValue())).collect(Collectors.toList());
+
+        a1.forEach(kv -> store.put(kv.getKey(), kv.getValue()));
+        a2.forEach(kv -> store.put(kv.getKey(), kv.getValue()));
+
+        List<Map.Entry<String, String>> e1 = store.enumerate("prefix1:", String.class);
+        List<Map.Entry<String, String>> e2 = store.enumerate("prefix2:", String.class);
+
+        Assertions.assertArrayEquals(a1.toArray(), e1.toArray());
+        Assertions.assertArrayEquals(a2.toArray(), e2.toArray());
     }
 }

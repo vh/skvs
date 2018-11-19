@@ -85,7 +85,7 @@ public class Store {
     }
 
     private static ByteBuffer prefixEnd(String prefix) {
-        return ByteBufferUtils.fromString(prefix.substring(0, prefix.length() - 1) + (prefix.charAt(prefix.length() - 1) + 1));
+        return ByteBufferUtils.fromString(prefix.substring(0, prefix.length() - 1) + (char)(prefix.charAt(prefix.length() - 1) + 1));
     }
 
     public List<Map.Entry<String, ByteBuffer>> enumerate(String prefix) {
