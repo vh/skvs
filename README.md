@@ -11,7 +11,7 @@ Using maven add the following in your `pom.xml`
 ```
     <dependencies>
         <dependency>
-            <groupId>com.github.vh.skvs</groupId>
+            <groupId>com.github.vh</groupId>
             <artifactId>skvs</artifactId>
             <version>1.0.0</version>
         </dependency>
@@ -20,7 +20,7 @@ Using maven add the following in your `pom.xml`
 
 If you are using gradle add the following in your `gradle.build`
 ```
-    compile 'com.github.vh.skvs:skvs:1.0.0'
+    compile 'com.github.vh:skvs:1.0.0'
 ```
 
 To create a store use `StoreFactory`:
