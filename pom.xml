@@ -3,6 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <name>SKVS</name>
+    <description>LMDB-based simple key-value store</description>
+    <url>https://github.com/vh/skvs</url>
 
     <groupId>com.github.vh</groupId>
     <artifactId>skvs</artifactId>
