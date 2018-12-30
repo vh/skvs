@@ -3,6 +3,6 @@ name: default
 
 steps:
   - name: test
-    image: maven:alpine
+    image: maven:3-jdk-11-slim
     commands:
       - mvn test
