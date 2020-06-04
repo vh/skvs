@@ -49,7 +49,7 @@
         <dependency>
             <groupId>org.lmdbjava</groupId>
             <artifactId>lmdbjava</artifactId>
-            <version>0.7.0</version>
+            <version>0.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
