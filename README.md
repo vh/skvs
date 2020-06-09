@@ -1,6 +1,6 @@
 # SKVS
 
-![](https://github.com/vh/skvs/workflows/.github/workflows/build.yml/badge.svg)
+![](https://github.com/vh/skvs/workflows/Build/badge.svg)
 
 Simple Key-Value Store. Built on top of LMDB.
 
