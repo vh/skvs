@@ -1,6 +1,6 @@
 # SKVS
 
-[![Build Status](https://travis-ci.org/vh/skvs.svg?branch=master)](https://travis-ci.org/vh/skvs)
+![](https://github.com/vh/skvs/workflows/.github/workflows/build.yml/badge.svg)
 
 Simple Key-Value Store. Built on top of LMDB.
 
