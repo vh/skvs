@@ -12,14 +12,14 @@ Using maven add the following in your `pom.xml`
         <dependency>
             <groupId>com.github.vh</groupId>
             <artifactId>skvs</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
 ```
 
 If you are using gradle add the following in your `gradle.build`
 ```
-    compile 'com.github.vh:skvs:1.0.0'
+    compile 'com.github.vh:skvs:1.0.2'
 ```
 
 To create a store use `StoreFactory`:

@@ -91,7 +91,7 @@ public class Store {
     public List<Map.Entry<String, ByteBuffer>> enumerate(String prefix) {
         try (Txn<ByteBuffer> txn = env.txnRead()) {
             return StreamSupport.stream(db.iterate(txn,
-                    KeyRange.open(ByteBufferUtils.fromString(prefix), prefixEnd(prefix))).iterable().spliterator(), false)
+                    KeyRange.open(ByteBufferUtils.fromString(prefix), prefixEnd(prefix))).spliterator(), false)
                     .map(kv -> new AbstractMap.SimpleImmutableEntry<>(ByteBufferUtils.toString(kv.key()), kv.val().duplicate()))
                     .collect(Collectors.toList());
         }
@@ -100,7 +100,7 @@ public class Store {
     public List<String> enumerateKeys(String prefix) {
         try (Txn<ByteBuffer> txn = env.txnRead()) {
             return StreamSupport.stream(db.iterate(txn,
-                    KeyRange.open(ByteBufferUtils.fromString(prefix), prefixEnd(prefix))).iterable().spliterator(), false)
+                    KeyRange.open(ByteBufferUtils.fromString(prefix), prefixEnd(prefix))).spliterator(), false)
                     .map(kv -> ByteBufferUtils.toString(kv.key()))
                     .collect(Collectors.toList());
         }
