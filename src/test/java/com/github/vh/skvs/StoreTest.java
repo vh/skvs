@@ -1,11 +1,10 @@
 package com.github.vh.skvs;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junitpioneer.jupiter.TempDir;
-import org.junitpioneer.jupiter.TempDirectoryExtension;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -14,12 +13,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@ExtendWith(TempDirectoryExtension.class)
 public class StoreTest {
 
     private Store store;
 
-    public StoreTest(@TempDir Path tempDir) {
+    @BeforeAll
+    void setup(@TempDir Path tempDir) {
         this.store = StoreFactory.createStore(tempDir, "test");
     }
 
